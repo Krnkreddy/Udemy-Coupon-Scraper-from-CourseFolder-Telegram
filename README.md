@@ -84,6 +84,26 @@ Use these links to enroll manually.
 
 ---
 
+🕐 Previous Tried Versions & Notes
+We experimented with multiple methods before arriving at the final solution:
+
+| Version                             | Description                                                                                  |
+| ----------------------------------- | -------------------------------------------------------------------------------------------- |
+| version1\_telegram\_only.py         | Fetched coursefolder.net links from Telegram, but lacked browser automation.                 |
+| version2\_browser\_open.py          | Used Playwright to open pages, but tabs were closing early and caused timeouts.              |
+| version3\_playwright\_open\_tabs.py | Tried to solve captchas and open tabs manually; hit timeout issues and inconsistent results. |
+
+
+Final version resolves all these problems by:
+
+Removing strict timeouts
+
+Handling CAPTCHA failures
+
+Scraping only clean Udemy coupon URLs
+
+---
+
 ## 📝 License
 
 This project is licensed under the MIT License.
