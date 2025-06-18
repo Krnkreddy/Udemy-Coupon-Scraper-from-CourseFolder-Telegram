@@ -95,12 +95,9 @@ We experimented with multiple methods before arriving at the final solution:
 
 
 Final version resolves all these problems by:
-
-Removing strict timeouts
-
-Handling CAPTCHA failures
-
-Scraping only clean Udemy coupon URLs
+- Removing strict timeouts
+- Handling CAPTCHA failures
+- Scraping only clean Udemy coupon URLs
 
 ---
 
