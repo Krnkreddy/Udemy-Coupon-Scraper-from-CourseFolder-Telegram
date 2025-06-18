@@ -93,15 +93,3 @@ This project is licensed under the MIT License.
 ## 💡 Credits
 
 Developed by [Krnk Reddy]([https://github.com/yourusername](https://github.com/Krnkreddy)) — feel free to contribute or fork!
-
-```
-
-Let me know if you’d like:
-
-- A badge-style header (e.g., using shields.io)
-- The requirements.txt file
-- A version that saves output links to a text file
-- A public Udemy Coupon Extractor from Telegram & CourseFolder
-
-I can also format this into an actual GitHub README preview or generate the requirements.txt too if needed.
-```
