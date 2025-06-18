@@ -1,0 +1,35 @@
+# Create a .txt file explaining how to use the Udemy login state with cookie downloader extensions
+
+
+# 📁 Path to Udemy session state (must be exported manually using browser with cookies extension)
+UDEMY_LOGIN_STATE = "udemy_auth.json"
+
+----------------------------------------------
+📌 How to Export Your Udemy Login Cookies (For Automation)
+----------------------------------------------
+
+1. ✅ Install a browser extension to export cookies:
+   - For Chrome: "Get cookies.txt" (by www.getcookie.org)
+   - For Firefox: "Cookies.txt" extension
+
+2. 🔐 Log in to your Udemy account in your browser.
+
+3. 🌐 Go to https://www.udemy.com
+
+4. 🍪 Click the extension icon and export cookies as JSON or cookies.txt.
+   - Save the file as: `udemy_auth.json`
+
+5. 📁 Place the `udemy_auth.json` file in the same folder as your Python script.
+
+6. 🚀 Run the script. Your session will be reused to enroll in courses without re-logging in.
+
+----------------------------------------------
+⚠️ Do NOT share your `udemy_auth.json` file. It contains your login session and can be misused.
+"""
+
+# Save it as a downloadable .txt file
+file_path = "/mnt/data/Udemy_Cookie_Guide.txt"
+with open(file_path, "w") as file:
+    file.write(file_content)
+
+file_path
