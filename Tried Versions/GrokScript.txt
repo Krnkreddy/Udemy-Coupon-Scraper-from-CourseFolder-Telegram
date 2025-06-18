@@ -1,0 +1,25 @@
+### 📌 How to Use Environment Variables (Recommended Setup)
+
+Create a `.env` file or set variables in your shell:
+
+```env
+TELEGRAM_API_ID=your_api_id
+TELEGRAM_API_HASH=your_api_hash
+TELEGRAM_CHANNEL=@your_channel_name
+UDEMY_EMAIL=your_udemy_email
+UDEMY_PASSWORD=your_udemy_password
+CAPTCHA_API_KEY=your_2captcha_key
+```
+
+Then use `dotenv` to load them (optional improvement):
+
+```bash
+pip install python-dotenv
+```
+
+Add this at the top of your script:
+
+```python
+from dotenv import load_dotenv
+load_dotenv()
+```
