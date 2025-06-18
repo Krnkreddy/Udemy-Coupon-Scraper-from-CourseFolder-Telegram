@@ -1,0 +1,33 @@
+# convert_cookies_txt_to_playwright.py
+import json
+
+def convert_to_playwright_format(txt_path, output_json="udemy_auth.json"):
+    cookies = []
+    with open(txt_path, "r") as f:
+        for line in f:
+            if not line.startswith("#") and line.strip():
+                # Format: domain, ?, path, secure, expires, name, value
+                domain, _, path, secure, expires, name, value = line.strip().split("\t")
+                cookies.append({
+                    "name": name,
+                    "value": value,
+                    "domain": domain,
+                    "path": path,
+                    "expires": int(expires) if expires != "0" else -1,
+                    "httpOnly": False,
+                    "secure": secure.lower() == "true",
+                    "sameSite": "Lax"
+                })
+
+    storage = {
+        "cookies": cookies,
+        "origins": []
+    }
+
+    with open(output_json, "w") as f:
+        json.dump(storage, f, indent=2)
+    print(f"✅ Saved cookies to {output_json}")
+
+# Example usage
+# Make sure 'udemy_cookies.txt' is in the same directory
+convert_to_playwright_format("udemy_cookies.txt")
