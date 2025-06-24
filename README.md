@@ -6,11 +6,13 @@ A Python automation tool that extracts free Udemy course links with active coupo
 
 ## 🚀 Features
 
-- 📥 Fetches messages from a specified Telegram group or channel.
-- 🔗 Extracts and visits all coursefolder.net links.
-- 🔍 Automatically finds working Udemy coupon links.
-- ⏩ Skips CAPTCHA-protected or broken links.
-- 📋 Outputs clean Udemy coupon URLs — no enrollment or interaction required.
+- ✅ Fetches the latest 200 messages from a public Telegram channel
+- ✅ Prioritizes unseen messages using a local history file
+- ✅ Extracts CourseFolder.net links from messages
+- ✅ Navigates each CourseFolder.net page using Playwright
+- ✅ Detects and skips CAPTCHA pages
+- ✅ Extracts final Udemy coupon URLs
+- ✅ Outputs links to udemy_links.txt
 
 ---
 
@@ -26,7 +28,7 @@ You're subscribed to Telegram channels sharing free Udemy coupons using coursefo
 - Telethon
 - Playwright
 - asyncio
-- Optional: BeautifulSoup (for enhanced HTML parsing)
+- Optional: BeautifulSoup (for enhanced HTML parsing, not used by default)
 
 ---
 
@@ -35,8 +37,8 @@ You're subscribed to Telegram channels sharing free Udemy coupons using coursefo
 1. Clone the repo:
 
 ```bash
-git clone https://github.com/yourusername/udemy-coupon-extractor.git
-cd udemy-coupon-extractor
+git clone https://github.com/Krnkreddy/Udemy-Coupon-Scraper-from-CourseFolder-Telegram.git
+cd Udemy-Coupon-Scraper-from-CourseFolder-Telegram
 ````
 
 2. Install dependencies:
@@ -45,7 +47,6 @@ cd udemy-coupon-extractor
 pip install -r requirements.txt
 playwright install
 ```
-
 3. Configure Telegram API:
 
 Edit the script (e.g., teleopenauto.py) and add your Telegram API credentials:
@@ -53,13 +54,16 @@ Edit the script (e.g., teleopenauto.py) and add your Telegram API credentials:
 ```python
 api_id = 123456     # Replace with your API ID
 api_hash = "your_api_hash"
-group_username = "YourGroupOrChannelUsername"
+group_username = "@YourChannelOrGroupUsername"
 ```
+To get Telegram API credentials:
+
+Visit https://my.telegram.org/auth and create a new app.
 
 4. Run the script:
 
 ```bash
-python teleopenauto.py
+python udemy_scraper.py
 ```
 
 ---
@@ -67,24 +71,27 @@ python teleopenauto.py
 ## ✅ Example Output
 
 ```bash
-✅ Udemy URL found: https://www.udemy.com/course/python-for-beginners/?couponCode=FREECODE2025
-✅ Udemy URL found: https://www.udemy.com/course/html-css-js-projects/?couponCode=HTMLMASTER
-✅ Udemy URL found: https://www.udemy.com/course/data-science-bootcamp/?couponCode=DATADEAL
+📥 Connecting to Telegram...
+✅ Found course URL: https://coursefolder.net/python-for-ai
+🌐 Visiting: https://coursefolder.net/python-for-ai
+✅ Udemy URL found: https://www.udemy.com/course/python-for-ai/?couponCode=FREE2025
 ```
 
-Use these links to enroll manually.
+Use these links to enroll manually. They are also saved in udemy\_links.txt.
 
 ---
 
 ## ❗ Notes
 
 * The script does not attempt to solve CAPTCHAs — it skips them automatically.
-* Udemy links are printed in the terminal and can be copied manually.
+* Udemy links are printed in the terminal and saved to a local file.
 * Make sure your Telegram account is authorized to access the group/channel.
+* Only unseen messages are processed on each run, tracked via udemy\_seen\_ids.json.
 
 ---
 
-🕐 Previous Tried Versions & Notes
+## 🕐 Previous Tried Versions & Notes
+
 We experimented with multiple methods before arriving at the final solution:
 
 | Version                             | Description                                                                                  |
@@ -93,11 +100,12 @@ We experimented with multiple methods before arriving at the final solution:
 | version2\_browser\_open.py          | Used Playwright to open pages, but tabs were closing early and caused timeouts.              |
 | version3\_playwright\_open\_tabs.py | Tried to solve captchas and open tabs manually; hit timeout issues and inconsistent results. |
 
+The final version resolves all these problems by:
 
-Final version resolves all these problems by:
-- Removing strict timeouts
-- Handling CAPTCHA failures
-- Scraping only clean Udemy coupon URLs
+* Removing strict timeouts
+* Handling CAPTCHA detection cleanly
+* Scraping only clean Udemy coupon URLs
+* Storing seen Telegram message IDs for efficient repeated runs
 
 ---
 
@@ -109,4 +117,13 @@ This project is licensed under the MIT License.
 
 ## 💡 Credits
 
-Developed by [Krnk Reddy]([https://github.com/yourusername](https://github.com/Krnkreddy)) — feel free to contribute or fork!
+Developed using:
+
+Telethon (https://github.com/LonamiWebs/Telethon)
+
+Playwright Python (https://playwright.dev/python/)
+
+For educational and personal use only. Not affiliated with Udemy or CourseFolder.
+
+
+Developed by [Krnk Reddy](https://github.com/Krnkreddy) — feel free to fork, contribute, or share feedback!
