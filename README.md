@@ -113,7 +113,7 @@ The final version resolves all these problems by:
 
 Contributions are what makes the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "birds".
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "links".
 Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
