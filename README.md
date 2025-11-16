@@ -169,6 +169,7 @@ Pull requests, bug reports, or ideas are **always welcome**.
 ## ⭐ Show Support
 
 If this project helped you, **please give it a star on GitHub** — it means a lot!
+
 👉 [https://github.com/Krnkreddy/Udemy-Coupon-Scraper-from-CourseFolder-Telegram](https://github.com/Krnkreddy/Udemy-Coupon-Scraper-from-CourseFolder-Telegram)
 
 ---
